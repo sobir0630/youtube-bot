@@ -1,0 +1,100 @@
+.config/
+.env/
+.idea/
+
+
+# ---------------------------
+# Python umumiy fayllar
+# ---------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ---------------------------
+# Virtual environment
+# ---------------------------
+env/
+
+
+# ---------------------------
+# OS fayllar
+# ---------------------------
+.DS_Store
+Thumbs.db
+
+# ---------------------------
+# Loglar
+# ---------------------------
+*.log
+*.out
+*.err
+
+# ---------------------------
+# IDE fayllari
+# ---------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---------------------------
+# Tokenlar va maxfiy fayllar
+# ---------------------------
+config.json
+*.env
+*.ini
+data.json
+secret.txt
+token.txt
+
+# ---------------------------
+# Cache
+# ---------------------------
+.cache/
+*.cache
+.cache/*
+
+# ---------------------------
+# Pyinstaller yoki build fayllar
+# ---------------------------
+build/
+dist/
+*.spec
+
+# ---------------------------
+# Jupyter
+# ---------------------------
+.ipynb_checkpoints
+
+# ---------------------------
+# Migrations (agar Django/Flask ishlatsa)
+# ---------------------------
+migrations/
+*.sqlite3
+
+# ---------------------------
+# Media / Downloads
+# ---------------------------
+temp/
+tmp/
+*.mp4
+*.mp3
+*.wav
+*.jpg
+*.png
+*.jpeg
+
+# ---------------------------
+# yt-dlp va ffmpeg chiqishlari
+# ---------------------------
+*.part
+*.ytdl
+*.aria2
+*.aria2c
+
+# ---------------------------
+# Telegram botga tegishli
+# ---------------------------
+session*
+*.session
+*.session-journal
