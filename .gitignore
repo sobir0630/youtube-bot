@@ -1,8 +1,7 @@
-.config/
 .env/
 .idea/
-
-
+config.py
+config
 # ---------------------------
 # Python umumiy fayllar
 # ---------------------------
@@ -40,12 +39,7 @@ Thumbs.db
 # ---------------------------
 # Tokenlar va maxfiy fayllar
 # ---------------------------
-config.json
-*.env
-*.ini
-data.json
-secret.txt
-token.txt
+*.config.py
 
 # ---------------------------
 # Cache
@@ -53,36 +47,9 @@ token.txt
 .cache/
 *.cache
 .cache/*
+__pycache__
 
-# ---------------------------
-# Pyinstaller yoki build fayllar
-# ---------------------------
-build/
-dist/
-*.spec
 
-# ---------------------------
-# Jupyter
-# ---------------------------
-.ipynb_checkpoints
-
-# ---------------------------
-# Migrations (agar Django/Flask ishlatsa)
-# ---------------------------
-migrations/
-*.sqlite3
-
-# ---------------------------
-# Media / Downloads
-# ---------------------------
-temp/
-tmp/
-*.mp4
-*.mp3
-*.wav
-*.jpg
-*.png
-*.jpeg
 
 # ---------------------------
 # yt-dlp va ffmpeg chiqishlari

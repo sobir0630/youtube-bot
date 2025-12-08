@@ -16,6 +16,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def start(update, context):
+    """botni boshlash funksiyasi"""
     update.message.reply_text('Assalomu alaykum! Botga xush kelibsiz!\n youtubedan videoni linkini yuboring\n men sizga videoni .mp4 formatda yuklab beraman')
     command = [BotCommand('start', 'boshlash')]
     context.bot.set_my_commands(command)
@@ -28,6 +29,7 @@ def start(update, context):
 
 
 def youtube(update, context):
+    """youtubedan yuklab olish funksiani chqarib"""
     msg = update.message.reply_text(
     'Video uning hajmiga qarab vaqt olishi mumkin, \n'
     'bot sizga videoni yuklab beradi, bunga faqat \n'
