@@ -1,6 +1,6 @@
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from telegram import BotCommand, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import BotCommand, InlineKeyboardMarkup, InlineKeyboardButton
 import os
 import logging
 import time
