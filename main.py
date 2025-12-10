@@ -1,12 +1,12 @@
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from telegram import BotCommand, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import BotCommand, InlineKeyboardMarkup, InlineKeyboardButton, Bot
 import os
 import logging
 import time
 from youtube.youtube_video import yukla, send_video, send_large_video, delete_video, videos_path
 from youtube.music import music_yukla, send_music, remove_music, file
-from config.config import TOKEN, CHAT_ID
+from configur.config import TOKEN, CHAT_ID
 
 # Enable logging
 logging.basicConfig(
@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 def start(update, context):
     """botni boshlash funksiyasi"""
-    update.message.reply_text('Assalomu alaykum! Botga xush kelibsiz!\n youtubedan videoni linkini yuboring\n men sizga videoni .mp4 formatda yuklab beraman')
+    update.message.reply_text('Assalomu alaykum! Botga xush kelibsiz!\nyoutubedan videoni linkini yuboring\nmen sizga videoni .mp4 formatda yuklab beraman')
     command = [BotCommand('start', 'boshlash')]
     context.bot.set_my_commands(command)
 
@@ -53,6 +53,7 @@ def youtube(update, context):
         update.message.reply_text('Video yuklanmoqda...')
         video_path = yukla(url)
         logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+
         get = os.path.getsize(video_path) / (1024 * 1024)
         if get > 50:
             update.message.reply_text('video hajmi katta bulakka bulib yuboryabman')
@@ -71,8 +72,8 @@ def youtube(update, context):
         remove_music(file)
         delete_video(videos_path)
 
-    except:
-        logging.error("Xatolik yuz berdi", exc_info=True)
+    except Exception as e:
+        logging.error(f"Xatolik yuz berdi {e}", exc_info=True)
 
 
 
@@ -82,6 +83,9 @@ if __name__ == '__main__':
     updater = Updater(token=TOKEN)
     dispatcher = updater.dispatcher
 
+    bot = Bot(TOKEN)
+    bot.send_message(chat_id=CHAT_ID, text="Bot ishga tushdi")
+
 
     dispatcher.add_handler(CommandHandler('start', start))
     dispatcher.add_handler(MessageHandler(Filters.regex(r'(https?://)?(www\.)?(youtube\.com|youtu\.be)/') & ~Filters.command, youtube))
@@ -89,7 +93,7 @@ if __name__ == '__main__':
     updater.idle()
 
 
-file = r"C:\Users\User\Downloads\kuynavo\music\Music.mp3"
+file = r"C:\Users\User\Downloads\kuynavo\youtube-bot\music\Music.mp3"
 remove_music(file)
 
 

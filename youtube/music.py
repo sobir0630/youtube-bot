@@ -1,9 +1,9 @@
 import os
 from yt_dlp import YoutubeDL
 
-SAVE_DIR = r"C:\Users\User\Downloads\kuynavo\music"
+SAVE_DIR = r"C:\Users\User\Downloads\kuynavo\youtube-bot\music"
 MUSIC_FILE = os.path.join(SAVE_DIR, "Music.mp3")
-file = r"C:\Users\User\Downloads\kuynavo\music\Music.mp3"
+file = r"C:\Users\User\Downloads\kuynavo\youtube-bot\music\Music.mp3"
 
 def music_yukla(url: str):
     os.makedirs(SAVE_DIR, exist_ok=True)

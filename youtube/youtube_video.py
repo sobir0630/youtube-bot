@@ -1,16 +1,16 @@
 from yt_dlp import YoutubeDL
 import os
 
-videos_path = "C:/Users/User/Downloads/kuynavo/videos/video.mp4"
+videos_path = "C:/Users/User/Downloads/kuynavo/youtube-bot/videos/video.mp4"
 
 def yukla(url):
-    save_dir = "C:/Users/User/Downloads/kuynavo/videos/video.mp4"
+    save_dir = "C:/Users/User/Downloads/kuynavo/youtube-bot/videos/video.mp4"
 
     ydl_opts = {
         "format": "bestvideo+bestaudio/best",
         "merge_output_format": "mp4",   # 🔥 mp4 bo‘lishini majbur qiladi
         "ffmpeg_location": r"C:\Users\User\Downloads\ffmpeg\ffmpeg-8.0.1-full_build\bin",
-        "outtmpl": "C:/Users/User/Downloads/kuynavo/videos/%(title)s.%(ext)s",
+        "outtmpl": "C:/Users/User/Downloads/kuynavo/youtube-bot/videos/%(title)s.%(ext)s",
         "noplaylist": True,
         "timeout": 200,
     }
@@ -38,14 +38,15 @@ try:
             context.bot.send_video(
                 chat_id=update.effective_chat.id,
                 video=video_file,
-                timeout=50  # 30 sekund emas, 200 sekund kutadi
+                supports_streaming=True,
+                timeout=200  # 30 sekund emas, 120 sekund kutadi
             )
 
 
     def send_large_video(update, context, chat_id):
         chunk_size = 1024 * 1024 * 10  # 10MB bo‘lak
 
-        file_path = "C:/Users/User/Downloads/kuynavo/videos/video.mp4"
+        file_path = "C:/Users/User/Downloads/kuynavo/youtube-bot/videos/video.mp4"
 
         with open(file_path, "rb") as f:
             part = 1
@@ -57,6 +58,7 @@ try:
                 context.bot.send_document(
                     chat_id=chat_id,
                     document=chunk,
+                    supports_streaming=True,
                     filename=f"video_part_{part}.mp4",
                     timeout=200
                 )
