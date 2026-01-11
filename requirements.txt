@@ -1,5 +1,5 @@
-python-telegram-bot==15.13,
-yt-dlp==2025.11.12,
-ffmpeg-python==0.2.0,
-ffmpeg_downloader==0.4.1,
+python-telegram-bot==13.15
+yt-dlp==2025.11.12
+ffmpeg-python==0.2.0
+ffmpeg_downloader==0.4.1
 requests==2.32.5
